@@ -16,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_view_note.*
 
 class ViewNoteFragment : Fragment() {
 
+    var args = ViewNoteFragmentArgs by navArgs<>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -18,4 +18,9 @@
     <string name="moods">Moods</string>
     <string name="moods2">Moods</string>
     <string name="enter_description">Enter Description</string>
+    <string name="back_button">Back Button</string>
+    <string name="empty" />
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="textview9">TextView</string>
+    <string name="moodpap">MoodPap</string>
 </resources>
