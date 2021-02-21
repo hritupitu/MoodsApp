@@ -109,10 +109,26 @@ class CreateNoteFragment : Fragment() {
 
     private fun insertNoteIntoDB() {
         // TODO PHASE 2.1: Create Note Object from data inputted and add Note to Database using NoteViewModel
+        val title = title.text.toString()
+        val description = info.text.toString()
+        val react = react.text.toString()
+
+        if(inputCheck(title, description, react)){
+            val note = Note(0, title, info, reaction = )
+            NoteViewModel.addNote(note)
+
+        }else{
+            Toast.makeText(requireContext(), "Invalid Input", Toast.LENGTH_LONG.show())
+        }
+
 
 
         // TODO PHASE 1.2: Use the Navigation Controller to switch to NoteFeedFragment
         val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToNoteFeedFragment()
         findNavController().navigate(action)
+    }
+
+    private fun inputCheck(title: String, description: String, reaction: Any, function: () -> Unit): Boolean {
+
     }
 }
