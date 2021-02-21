@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.findFragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.moods.data.Note
 import kotlinx.android.synthetic.main.noteslist_item.view.*
@@ -15,6 +17,10 @@ class NoteListAdapter(private var mNoteList: List<Note>): RecyclerView.Adapter<N
 
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
         // TODO PHASE 1.1: Define Views in ViewHolder
+        val entryView  = itemView.findViewById<LinearLayout>(R.id.note_container)
+        val image = itemView.findViewById<ImageView>(R.id.imageView2)
+        val title = itemView.findViewById<TextView>(R.id.textView2)
+        val descript = itemView.findViewById<TextView>(R.id.textView3)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -27,10 +33,17 @@ class NoteListAdapter(private var mNoteList: List<Note>): RecyclerView.Adapter<N
         // TODO PHASE 1.1: Update views in layout with Note data from the current
         //  Note ine the list based on the given position
 
+        setMoodImage(holder.image, mNoteList[position].reaction.toString())
+        holder.title.text = mNoteList[position].title
+        holder.descript.text = mNoteList[position].content
 
         // TODO PHASE 1.1: Add a click listener on the container view of one notelist_item and
         //  use the Navigation Controller to switch to the ViewNoteFragment Screen. Make sure to
         //  pass the clicked Note as an argument
+        holder.entryView.setOnClickListener{
+            val action = NoteFeedFragmentDirections.actionNoteFeedFragmentToViewNoteFragment(mNoteList[position])
+            findNavController(holder.itemView.findFragment()).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int = mNoteList.size
