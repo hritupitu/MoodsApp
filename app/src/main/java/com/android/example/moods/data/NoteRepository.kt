@@ -2,7 +2,8 @@ package com.android.example.moods.data
 
 import androidx.lifecycle.LiveData
 
-class NoteRepository(private val noteDao: NoteDatabase) {
+class NoteRepository(private val noteDao: NoteDao) {
+
 
     // TODO PHASE 2.0: Define getAllNotes method - call noteDao to get all notes
     val getAllNotes: LiveData<List<Note>> = noteDao.getAllNotes()

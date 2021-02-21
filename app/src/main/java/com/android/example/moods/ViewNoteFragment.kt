@@ -10,13 +10,14 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.android.example.moods.data.Note
 import com.android.example.moods.data.NoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_view_note.*
 
 class ViewNoteFragment : Fragment() {
 
-    var args = ViewNoteFragmentArgs by navArgs<>()
+    var args = ViewNoteFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

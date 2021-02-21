@@ -8,11 +8,11 @@ interface NoteDao {
 
     // TODO PHASE 2.0: Define Query to get all Notes
     @Query ("SELECT * FROM note_table")
-    fun getAllNotes (): LiveData<List<Note>>
+    fun getAllNotes(): LiveData<List<Note>>
 
     // TODO PHASE 2.0: Define Query to update a Note
     @Update
-    fun updateNote (notes : Note)
+    fun updateNote(notes : Note)
 
     // TODO PHASE 2.0: Define Query to insert a Note
     @Insert
