@@ -19,7 +19,7 @@
             android:id="@+id/action_viewNoteFragment_to_updateNoteFragment"
             app:destination="@id/updateNoteFragment" />
         <argument
-            android:name="Note"
+            android:name="currentNote"
             app:argType="com.android.example.moods.data.Note" />
     </fragment>
     <fragment
@@ -32,6 +32,9 @@
             app:destination="@id/noteFeedFragment"
             app:popUpTo="@id/noteFeedFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="currentNote"
+            app:argType="com.android.example.moods.data.Note" />
     </fragment>
     <fragment
         android:id="@+id/noteFeedFragment"

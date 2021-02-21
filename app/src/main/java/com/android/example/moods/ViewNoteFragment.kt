@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_view_note.*
 
 class ViewNoteFragment : Fragment() {
 
-    val args = ViewNoteFragmentArgs by navArgs<>()
+    val args : ViewNoteFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +33,25 @@ class ViewNoteFragment : Fragment() {
 
         // TODO PHASE 1.3: Set Data on screen by grabbing Note from safe args
 
+        val title = args.currentNote.title
+        val content = args.currentNote.content
+        val reaction = args.currentNote.reaction
+        textView.text = title
+        setMoodImage(imageView4, reaction.toString())
+        textView4.text = content
 
         // TODO PHASE 1.3: Add an on click listener to the 'pencil' FAB
         //  and use the Navigation Controller to navigation to the UpdateNoteFragment.
         //  Make sure to pass the current Note as an argument to the navigation action
-
+        floatingedit.setOnClickListener {
+            val action = ViewNoteFragmentDirections.actionViewNoteFragmentToUpdateNoteFragment(args.currentNote)
+            findNavController().navigate(action)
+        }
 
         // TODO PHASE 1.3: Add an on click listener to the 'trashcan' FAB and call deleteNoteFromDB
+        floatingdel.setOnClickListener {
+            deleteNoteFromDB()
+        }
     }
 
     private fun deleteNoteFromDB() {
@@ -47,6 +59,8 @@ class ViewNoteFragment : Fragment() {
 
 
         // TODO PHASE 1.3: Use the Navigation Controller to switch to NoteFeedFragment
+        val action = ViewNoteFragmentDirections.actionViewNoteFragmentToNoteFeedFragment()
+        findNavController().navigate(action)
     }
 
     // Feel free to use/update this function if you find parts of it useful for your implementation

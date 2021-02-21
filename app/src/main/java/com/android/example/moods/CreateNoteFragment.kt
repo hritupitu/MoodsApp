@@ -38,10 +38,11 @@ class CreateNoteFragment : Fragment() {
 
         // TODO PHASE 1.2: Add on click listener to the submission FAB that calls insertNoteIntoDB()
         floatingActionButton1.setOnClickListener{
-            //This is the add floating action button
-            val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToNoteFeedFragment()
-            findNavController().navigate(action)
             // TODO Abhirup: Connect this to db
+            insertNoteIntoDB()
+            //This is the add floating action button
+
+
         }
 
 
@@ -53,7 +54,7 @@ class CreateNoteFragment : Fragment() {
 
 
         // TODO PHASE 1.2: Add on click listener to Mood Images to select the one that was clicked last
-
+        var react = "empty"
         sadFace = view.findViewById<ImageView>(R.id.sad)
         happyFace = view.findViewById<ImageView>(R.id.happy)
         contentFace = view.findViewById<ImageView>(R.id.content)
@@ -63,26 +64,32 @@ class CreateNoteFragment : Fragment() {
         sadFace.setOnClickListener{
             resetImages()
             sadFace.setImageResource(R.drawable.ic_sad_outline_true)
+            react = "sad"
         }
         happyFace.setOnClickListener{
             resetImages()
             happyFace.setImageResource(R.drawable.ic_happy_outline_true)
+            react = "happy"
         }
         contentFace.setOnClickListener{
             resetImages()
             contentFace.setImageResource(R.drawable.ic_content_outline_true)
+            react = "content"
         }
         anxiousFace.setOnClickListener{
             resetImages()
             anxiousFace.setImageResource(R.drawable.ic_anxious_outline_true)
+            react = "anxious"
         }
         madFace.setOnClickListener{
             resetImages()
             madFace.setImageResource(R.drawable.ic_mad_outline_true)
+            react = "mad"
         }
         neutralFace.setOnClickListener{
             resetImages()
             neutralFace.setImageResource(R.drawable.ic_neutral_outline_true)
+            react = "neutral"
         }
 
     }
@@ -105,5 +112,7 @@ class CreateNoteFragment : Fragment() {
 
 
         // TODO PHASE 1.2: Use the Navigation Controller to switch to NoteFeedFragment
+        val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToNoteFeedFragment()
+        findNavController().navigate(action)
     }
 }
