@@ -35,8 +35,8 @@ class NoteFeedFragment : Fragment() {
 
         val topics = mutableListOf<Note>(
             Note(1,"Sad","I am sad because i like being sad","sad"),
-            Note(1,"Happy","I am happy because i like being happy","happy"),
-            Note(1,"Anxious","i am anxious because this app is not finishing","anxious")
+            Note(2,"Happy","I am happy because i like being happy","happy"),
+            Note(3,"Anxious","i am anxious because this app is not finishing","anxious")
         )
 
         this.rv = view.findViewById<RecyclerView>(R.id.NoteRecyclerView)

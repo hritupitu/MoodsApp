@@ -25,12 +25,14 @@
                 android:id="@+id/anxious"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
                 android:contentDescription="@string/anxiousface"
                 android:src="@drawable/ic_anxious_outline_false" />
 
             <ImageView
                 android:id="@+id/content"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/happyface"
                 android:src="@drawable/ic_content_outline_false" />
@@ -40,6 +42,7 @@
             <ImageView
                 android:id="@+id/happy"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/happyface2"
                 android:src="@drawable/ic_happy_outline_false" />
@@ -47,6 +50,7 @@
             <ImageView
                 android:id="@+id/mad"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/madface"
                 android:src="@drawable/ic_mad_outline_false" />
@@ -54,6 +58,7 @@
             <ImageView
                 android:id="@+id/neutral"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/neutralface1"
                 android:src="@drawable/ic_neutral_outline_false" />
@@ -120,9 +125,9 @@
         android:layout_gravity="top|center"
         android:layout_marginTop="200dp"
         android:ems="50"
-        android:hint="@string/write_how_you_feel"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:hint = "@string/enter_description"
         android:text="@string/write_how_you_feel" />
 
 
