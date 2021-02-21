@@ -15,7 +15,7 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
     // TODO PHASE 2.0: initialize noteDao, repository and getAllNotes
 
     init{
-        val noteDao = NoteDatabase.getDatabase(application)
+        val noteDao = NoteDatabase.getDatabase(application).noteDao()
         repository = NoteRepository(noteDao)
         getAllNotes = repository.getAllNotes
     }

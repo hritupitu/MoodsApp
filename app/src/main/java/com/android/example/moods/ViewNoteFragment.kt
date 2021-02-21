@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.example.moods.data.Note
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_view_note.*
 
 class ViewNoteFragment : Fragment() {
 
-    var args = ViewNoteFragmentArgs by navArgs()
+    val args = ViewNoteFragmentArgs by navArgs<>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
