@@ -13,4 +13,4 @@ The objective of this assignment is to make an application called Moods, using K
 
 In the following video you can see how the application works and a comprehensive overview of the codebase
 
-Code Tour/Demo: [video-url-here]
+Code Tour/Demo: https://drive.google.com/file/d/1J7ZEpmnt4o1w8CdexHWJLEEkXcrYQP1A/view?usp=sharing
