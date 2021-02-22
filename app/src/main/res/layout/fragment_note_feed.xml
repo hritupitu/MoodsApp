@@ -36,9 +36,13 @@
         android:id="@+id/MoodsText"
         android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:fontFamily="@font/playfair_display_bold"
         android:gravity="center"
         android:text="@string/moods"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
         android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
 
