@@ -132,6 +132,6 @@ class CreateNoteFragment : Fragment() {
     }
 
     private fun inputCheck(title: String, descript: String, react: String): Boolean {
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react.isEmpty())
+        return (TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react=="")
     }
 }
