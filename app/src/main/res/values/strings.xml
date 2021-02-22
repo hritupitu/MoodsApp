@@ -25,4 +25,5 @@
     <string name="moodpap">MoodPap</string>
     <string name="no_moods_yet" />
     <string name="how_are_you_feeling_today">How are you feeling today</string>
+    <string name="moodslowercase">moods</string>
 </resources>

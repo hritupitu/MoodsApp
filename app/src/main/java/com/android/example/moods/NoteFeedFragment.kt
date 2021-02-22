@@ -31,18 +31,12 @@ class NoteFeedFragment : Fragment() {
 
 
         val noteListAdapter = NoteListAdapter()
-//        if (noteListAdapter.itemCount==0)
-//        {
-//            val action = NoteFeedFragmentDirections.actionNoteFeedFragmentToEmptyCase()
-//            findNavController().navigate(action)
-//        }
+
         this.rv = view.findViewById<RecyclerView>(R.id.NoteRecyclerView)
         this.rv.layoutManager=LinearLayoutManager(view.context)
         this.rv.adapter = noteListAdapter
         //  you may fill the recyclerview with dummy data to test it out
         //  but you'll want to remove the dummy data when working on Phase 2
-
-
 
         // TODO PHASE 1.1: Add an on click listener to the '+' FAB
         //  and use the Navigation Controller to navigation to the CreateNoteFragment
