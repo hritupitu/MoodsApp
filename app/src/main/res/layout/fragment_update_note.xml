@@ -130,6 +130,7 @@
         android:background="@android:color/transparent"
         android:inputType="text"
         android:text="@string/textview"
+        android:gravity="top"
         android:fontFamily="@font/roboto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
