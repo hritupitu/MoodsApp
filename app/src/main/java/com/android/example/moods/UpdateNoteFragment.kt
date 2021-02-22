@@ -1,6 +1,7 @@
 package com.android.example.moods
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,13 @@ import androidx.room.Update
 import com.android.example.moods.data.Note
 import com.android.example.moods.data.NoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_create_note.*
 import kotlinx.android.synthetic.main.fragment_update_note.*
 
 class UpdateNoteFragment : Fragment() {
 
+    private lateinit var myNoteViewModel : NoteViewModel
+    private var react =""
     val args: UpdateNoteFragmentArgs by navArgs()
     lateinit var sadFace : ImageView
     lateinit var happyFace : ImageView
@@ -46,13 +50,13 @@ class UpdateNoteFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        myNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
         super.onViewCreated(view, savedInstanceState)
-        var react = "empty"
         // TODO PHASE 1.4: Set Data on screen by grabbing Note from safe args
         //  (EditTexts, ImageViews, and so on ...)
         val title = args.currentNote.title
         val content = args.currentNote.content
-        val reaction = args.currentNote.reaction
+        react = args.currentNote.reaction.toString()
         titleupdate.setText(title)
         contentupdate.setText(content)
         sadFace = view.findViewById<ImageView>(R.id.sad)
@@ -117,6 +121,11 @@ class UpdateNoteFragment : Fragment() {
     private fun updateNoteIntoDB() {
         // TODO PHASE 2.4: Create(or update) a Note Object from data inputted on the screen
         //  and add said Note to Database using NoteViewModel
+        val title = titleupdate.text.toString()
+        val descript = contentupdate.text.toString()
+        myNoteViewModel.updateNote(Note(args.currentNote.id,title,descript,react))
+
+        Toast.makeText(requireContext(),"Note Updated :)", Toast.LENGTH_LONG).show()
 
 
         // TODO PHASE 1.4: Use the Navigation Controller to switch to NoteFeedFragment

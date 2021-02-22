@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_view_note.*
 class ViewNoteFragment : Fragment() {
 
     val args : ViewNoteFragmentArgs by navArgs()
+    private lateinit var myNoteViewModel : NoteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +33,7 @@ class ViewNoteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TODO PHASE 1.3: Set Data on screen by grabbing Note from safe args
-
+        myNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
         val title = args.currentNote.title
         val content = args.currentNote.content
         val reaction = args.currentNote.reaction
@@ -59,8 +60,8 @@ class ViewNoteFragment : Fragment() {
 
     private fun deleteNoteFromDB() {
         // TODO PHASE 2.3: Delete Note Object being viewed using NoteViewModel
-
-
+        myNoteViewModel.deleteNode(args.currentNote)
+        Toast.makeText(requireContext(),"Note Deleted", Toast.LENGTH_LONG).show()
 
         // TODO PHASE 1.3: Use the Navigation Controller to switch to NoteFeedFragment
         val action = ViewNoteFragmentDirections.actionViewNoteFragmentToNoteFeedFragment()
