@@ -2,6 +2,7 @@ package com.android.example.moods
 
 import android.media.Image
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +17,12 @@ import com.android.example.moods.data.Note
 import com.android.example.moods.data.NoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_create_note.*
+import kotlinx.android.synthetic.main.fragment_create_note.view.*
 
 class CreateNoteFragment : Fragment() {
 
+    private lateinit var myNoteViewModel : NoteViewModel
+    private var react =""
     lateinit var sadFace : ImageView
     lateinit var happyFace : ImageView
     lateinit var contentFace : ImageView
@@ -35,7 +39,7 @@ class CreateNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        myNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
         // TODO PHASE 1.2: Add on click listener to the submission FAB that calls insertNoteIntoDB()
         floatingActionButton1.setOnClickListener{
             // TODO Abhirup: Connect this to db
@@ -54,7 +58,7 @@ class CreateNoteFragment : Fragment() {
 
 
         // TODO PHASE 1.2: Add on click listener to Mood Images to select the one that was clicked last
-        var react = "empty"
+
         sadFace = view.findViewById<ImageView>(R.id.sad)
         happyFace = view.findViewById<ImageView>(R.id.happy)
         contentFace = view.findViewById<ImageView>(R.id.content)
@@ -104,6 +108,7 @@ class CreateNoteFragment : Fragment() {
         anxiousFace.setImageResource(R.drawable.ic_anxious_outline_false)
         madFace.setImageResource(R.drawable.ic_mad_outline_false)
         neutralFace.setImageResource(R.drawable.ic_neutral_outline_false)
+        react=""
 
     }
 
@@ -122,10 +127,24 @@ class CreateNoteFragment : Fragment() {
         }
 
 
-
+        val title = title.text.toString()
+        val descript = info.text.toString()
+        if(inputCheck(title,descript,react)){
+            val note = Note(0,title,descript,react)
+            myNoteViewModel.addNote(note)
+            Toast.makeText(requireContext(),"Note Added :)", Toast.LENGTH_LONG).show()
+            val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToNoteFeedFragment()
+            findNavController().navigate(action)
+        }
+        else{
+            Toast.makeText(requireContext(),"Invalid Note", Toast.LENGTH_LONG).show()
+        }
         // TODO PHASE 1.2: Use the Navigation Controller to switch to NoteFeedFragment
-        val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToNoteFeedFragment()
-        findNavController().navigate(action)
+
+    }
+
+    private fun inputCheck(title: String, descript: String, react: String): Boolean {
+        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react=="")
     }
 
     private fun inputCheck(title: String, description: String, reaction: Any, function: () -> Unit): Boolean {

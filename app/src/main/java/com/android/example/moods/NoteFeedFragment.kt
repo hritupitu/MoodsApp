@@ -33,15 +33,16 @@ class NoteFeedFragment : Fragment() {
 
         // TODO : Remove Dummy Data
 
-        val topics = mutableListOf<Note>(
-            Note(1,"Sad","I am sad because i like being sad","sad"),
-            Note(2,"Happy","I am happy because i like being happy","happy"),
-            Note(3,"Anxious","i am anxious because this app is not finishing","anxious")
-        )
+//        val topics = mutableListOf<Note>(
+//            Note(1,"Sad","I am sad because i like being sad","sad"),
+//            Note(2,"Happy","I am happy because i like being happy","happy"),
+//            Note(3,"Anxious","i am anxious because this app is not finishing","anxious")
+//        )
 
+        val noteListAdapter = NoteListAdapter()
         this.rv = view.findViewById<RecyclerView>(R.id.NoteRecyclerView)
         this.rv.layoutManager=LinearLayoutManager(view.context)
-        this.rv.adapter = NoteListAdapter(topics)
+        this.rv.adapter = noteListAdapter
         //  you may fill the recyclerview with dummy data to test it out
         //  but you'll want to remove the dummy data when working on Phase 2
 
@@ -56,5 +57,7 @@ class NoteFeedFragment : Fragment() {
 
         // TODO PHASE 2.2: Connect to the NoteViewModel and use it to update the RecyclerView's list
         //  Hint: Look at NoteListAdapter's setData method
+        var myNoteViewModel = ViewModelProvider(this).get(NoteViewModel::class.java)
+        myNoteViewModel.getAllNotes.observe(viewLifecycleOwner, Observer { note -> noteListAdapter.setData(note) })
     }
 }

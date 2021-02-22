@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(application: Application): AndroidViewModel(application) {
     // TODO PHASE 2.0: declare member variables getAllNotes and repository
-    private val getAllNotes: LiveData<List<Note>>
+    val getAllNotes: LiveData<List<Note>>
     private val repository: NoteRepository
 
     // TODO PHASE 2.0: initialize noteDao, repository and getAllNotes

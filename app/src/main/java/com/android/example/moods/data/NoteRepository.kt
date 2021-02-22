@@ -9,17 +9,17 @@ class NoteRepository(private val noteDao: NoteDao) {
     val getAllNotes: LiveData<List<Note>> = noteDao.getAllNotes()
 
     // TODO PHASE 2.0: Define addNote method - call noteDao to insert note
-    fun addNote(note: Note){
+    suspend fun addNote(note: Note){
         noteDao.addNote(note)
     }
 
     // TODO PHASE 2.0: Define updateNote method - call noteDao to update note
-    fun updateNote(note: Note){
+    suspend fun updateNote(note: Note){
         noteDao.updateNote(note)
     }
 
     // TODO PHASE 2.0: Define deleteNote method - call noteDao to delete note
-    fun deleteNote(note : Note){
+    suspend fun deleteNote(note : Note){
         noteDao.deleteNote(note)
     }
 }

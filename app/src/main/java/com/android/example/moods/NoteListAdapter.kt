@@ -13,8 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.example.moods.data.Note
 import kotlinx.android.synthetic.main.noteslist_item.view.*
 
-class NoteListAdapter(private var mNoteList: List<Note>): RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
+class NoteListAdapter(): RecyclerView.Adapter<NoteListAdapter.NoteViewHolder>() {
 
+    private var mNoteList = emptyList<Note>()
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
         // TODO PHASE 1.1: Define Views in ViewHolder
         val entryView  = itemView.findViewById<LinearLayout>(R.id.note_container)

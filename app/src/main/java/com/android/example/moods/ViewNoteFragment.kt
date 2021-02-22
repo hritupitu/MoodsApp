@@ -61,6 +61,7 @@ class ViewNoteFragment : Fragment() {
         // TODO PHASE 2.3: Delete Note Object being viewed using NoteViewModel
 
 
+
         // TODO PHASE 1.3: Use the Navigation Controller to switch to NoteFeedFragment
         val action = ViewNoteFragmentDirections.actionViewNoteFragmentToNoteFeedFragment()
         findNavController().navigate(action)
