@@ -30,8 +30,8 @@ class CreateNoteFragment : Fragment() {
     lateinit var madFace : ImageView
     lateinit var neutralFace : ImageView
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_create_note, container, false)
@@ -114,18 +114,6 @@ class CreateNoteFragment : Fragment() {
 
     private fun insertNoteIntoDB() {
         // TODO PHASE 2.1: Create Note Object from data inputted and add Note to Database using NoteViewModel
-        val title = title.text.toString()
-        val description = info.text.toString()
-        val react = react.text.toString()
-
-        if(inputCheck(title, description, react)){
-            val note = Note(0, title, info, reaction = )
-            NoteViewModel.addNote(note)
-
-        }else{
-            Toast.makeText(requireContext(), "Invalid Input", Toast.LENGTH_LONG.show())
-        }
-
 
         val title = title.text.toString()
         val descript = info.text.toString()
@@ -144,10 +132,6 @@ class CreateNoteFragment : Fragment() {
     }
 
     private fun inputCheck(title: String, descript: String, react: String): Boolean {
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react=="")
-    }
-
-    private fun inputCheck(title: String, description: String, reaction: Any, function: () -> Unit): Boolean {
-
+        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react.isEmpty())
     }
 }
