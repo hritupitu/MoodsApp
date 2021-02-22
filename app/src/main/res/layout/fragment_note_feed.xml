@@ -38,7 +38,7 @@
         android:layout_height="61dp"
         android:fontFamily="@font/playfair_display_bold"
         android:gravity="center"
-        android:text="@string/moodslowercase"
+        android:text="@string/moodslower"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="40sp"
