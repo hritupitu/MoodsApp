@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_create_note.view.*
 class CreateNoteFragment : Fragment() {
 
     private lateinit var myNoteViewModel : NoteViewModel
-    private var react =""
+    private var react ="empty"
     lateinit var sadFace : ImageView
     lateinit var happyFace : ImageView
     lateinit var contentFace : ImageView
@@ -132,6 +132,6 @@ class CreateNoteFragment : Fragment() {
     }
 
     private fun inputCheck(title: String, descript: String, react: String): Boolean {
-        return (TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react=="")
+        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(descript) && react=="empty")
     }
 }
