@@ -27,4 +27,6 @@
     <string name="how_are_you_feeling_today">How are you feeling today</string>
     <string name="edit_mood">Edit Mood</string>
     <string name="moodslower">moods</string>
+    <string name="no_moods_yet2">no moods yet</string>
+    <string name="no_moods_yet3">No moods yet</string>
 </resources>
