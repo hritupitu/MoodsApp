@@ -39,7 +39,10 @@ class ViewNoteFragment : Fragment() {
         textView.text = title
         setMoodImage(imageView4, reaction.toString())
         textView4.text = content
-
+        backbutton.setOnClickListener{
+            val action = ViewNoteFragmentDirections.actionViewNoteFragmentToNoteFeedFragment()
+            findNavController().navigate(action)
+        }
         // TODO PHASE 1.3: Add an on click listener to the 'pencil' FAB
         //  and use the Navigation Controller to navigation to the UpdateNoteFragment.
         //  Make sure to pass the current Note as an argument to the navigation action
